@@ -1,0 +1,297 @@
+1️⃣ Fibonacci Numbers (Recursive and Non-Recursive)
+Aim:
+To write a recursive and non-recursive program to calculate Fibonacci numbers and analyze their time and space complexity.
+
+Theory:
+The Fibonacci series is a sequence of numbers where each number is the sum of the two preceding ones.
+It starts with 0 and 1.
+
+Mathematical Definition:
+F(0) = 0, F(1) = 1
+F(n) = F(n−1) + F(n−2) for n ≥ 2
+
+The problem helps in understanding recursion, iteration, and algorithm efficiency.
+
+Recursive Method:
+In recursion, the function calls itself to solve smaller subproblems.
+The recursive function directly follows the mathematical definition.
+However, it performs many repeated calculations, making it inefficient.
+
+Algorithm (Recursive):
+If n ≤ 1, return n.
+Otherwise, return fib(n−1) + fib(n−2).
+Count the number of function calls as the step count.
+
+Advantages: Simple and easy to understand.
+Disadvantages: Exponential time due to repeated subproblems.
+
+Non-Recursive (Iterative) Method:
+
+Uses a simple loop instead of function calls.
+
+Stores only the last two Fibonacci numbers at each step.
+
+Much faster and more memory efficient.
+
+Algorithm (Iterative):
+
+Initialize first = 0, second = 1.
+
+Loop from i = 0 to n:
+
+Print first.
+
+Compute next = first + second.
+
+Update first = second, second = next.
+
+Count loop iterations as steps.
+
+Complexity Analysis:
+Method	Time Complexity	Space Complexity	Remarks
+Recursive	O(2ⁿ)	O(n)	Very slow for large n
+Iterative	O(n)	O(1)	Efficient and faster
+Applications:
+
+Algorithm design and complexity analysis
+
+Dynamic programming demonstrations
+
+Used in computer graphics and algorithm optimization problems
+
+2️⃣ Huffman Encoding (Greedy Algorithm)
+Aim:
+
+To implement Huffman Encoding using a greedy strategy.
+
+Theory:
+
+Huffman Encoding is a lossless compression algorithm.
+
+It reduces the size of data by assigning short binary codes to frequent symbols and longer codes to less frequent symbols.
+
+It is a Greedy algorithm because at each step, it chooses the two smallest frequencies to merge.
+
+Concept:
+
+Each symbol is treated as a leaf node with its frequency.
+
+Build a min-heap based on frequencies.
+
+Remove two smallest nodes, create a new node with frequency = sum of both.
+
+Insert this new node back into the heap.
+
+Repeat until only one node remains (the root of Huffman Tree).
+
+Traverse the tree: assign ‘0’ for the left branch and ‘1’ for the right branch.
+
+The resulting binary codes are prefix-free (no code is a prefix of another), ensuring lossless decoding.
+
+Example:
+Symbol	Frequency	Huffman Code
+a	50	11
+b	9	000
+c	12	001
+d	13	010
+e	16	011
+f	45	10
+Properties:
+
+Prefix-free binary encoding
+
+Variable-length codes based on frequency
+
+Optimal for symbol-based compression
+
+Complexity:
+Operation	Time Complexity
+Building Min-Heap	O(n)
+Tree Construction	O(n log n)
+Code Generation	O(n)
+Overall	O(n log n)
+Space Complexity	O(n)
+Applications:
+
+File compression (ZIP, GZIP)
+
+Multimedia compression (JPEG, MP3)
+
+Text transmission and encoding
+
+Why Huffman Coding is Lossless:
+
+Because no code is a prefix of another, each encoded message can be uniquely and completely decoded — no data is lost.
+
+3️⃣ Fractional Knapsack Problem (Greedy Method)
+Aim:
+
+To solve the Fractional Knapsack problem using a greedy strategy.
+
+Theory:
+
+The Knapsack problem involves selecting items with given weights and values to maximize total value without exceeding capacity.
+
+In Fractional Knapsack, we can take fractions of an item instead of the whole item.
+
+Greedy choice: pick items in descending order of value/weight ratio.
+
+Algorithm (Greedy Approach):
+
+Calculate ratio = value / weight for each item.
+
+Sort items in decreasing order of ratio.
+
+Start adding items to the knapsack from the top of the sorted list.
+
+If the item fits completely, add it.
+
+If not, add only the fractional part that fits the remaining capacity.
+
+Stop when knapsack is full.
+
+Example:
+Item	Value	Weight	Ratio
+1	60	10	6
+2	100	20	5
+3	120	30	4
+
+Capacity = 50
+→ Take all of Item 1 (10) + Item 2 (20) + ⅔ of Item 3 (20)
+→ Total value = 60 + 100 + 80 = 240
+
+Complexity:
+Operation	Complexity
+Sorting items	O(n log n)
+Greedy filling	O(n)
+Total	O(n log n)
+Space	O(1)
+Applications:
+
+Resource allocation
+
+Budget optimization
+
+Cloud computing and CPU scheduling
+
+Used in logistics and operations research
+
+4️⃣ N-Queens Problem (Backtracking)
+Aim:
+
+To design an N-Queens matrix having the first queen placed and use backtracking to place remaining queens.
+
+Theory:
+
+The N-Queens problem involves placing N queens on an N×N chessboard so that no two queens threaten each other.
+
+That means:
+
+No two queens share the same row, column, or diagonal.
+
+It is a backtracking problem — we try a position, and if it leads to a conflict, we backtrack and try another.
+
+Algorithm:
+
+Place the first queen at the given (fixed) position.
+
+Move to the next row:
+
+For each column, check if placing a queen is safe.
+
+If safe, place it and move to the next row.
+
+If not safe, try the next column.
+
+If a row has no valid column, backtrack to the previous row and move the queen.
+
+Continue until all queens are placed or no solution exists.
+
+Safety Check:
+
+For a position (r, c), check:
+
+No other queen in column c
+
+No queen on upper-left diagonal
+
+No queen on upper-right diagonal
+
+Complexity:
+
+Time: O(N!) (since it explores all possible placements)
+
+Space: O(N²) for storing board or O(N) with arrays
+
+Applications:
+
+Used in backtracking algorithm demonstrations
+
+Constraint satisfaction problems (scheduling, puzzles)
+
+Artificial Intelligence and robotics path planning
+
+5️⃣ Quick Sort (Deterministic and Randomized)
+Aim:
+
+To implement randomized and deterministic Quick Sort and analyze their complexity.
+
+Theory:
+
+Quick Sort is a divide and conquer sorting algorithm.
+
+It picks a pivot element, partitions the array into two parts — elements smaller and larger than the pivot — and sorts them recursively.
+
+Deterministic Quick Sort:
+
+Pivot is chosen by a fixed rule (e.g., first, last, or middle element).
+
+May lead to worst-case O(n²) if array is already sorted.
+
+Randomized Quick Sort:
+
+Pivot is chosen randomly from the array.
+
+Reduces chances of worst-case and gives average O(n log n) time.
+
+Algorithm Steps:
+
+Select a pivot (random or fixed).
+
+Partition the array into two subarrays:
+
+Left: elements < pivot
+
+Right: elements > pivot
+
+Recursively sort the subarrays.
+
+Combine results for the final sorted array.
+
+Example:
+
+Array: [10, 7, 8, 9, 1, 5]
+Pivot = 9 → Partition into [7,8,1,5] and [10] → Recursively sort each.
+
+Complexity:
+Case	Time Complexity	Space
+Best	O(n log n)	O(log n)
+Average	O(n log n)	O(log n)
+Worst	O(n²)	O(n)
+Applications:
+
+Sorting large datasets
+
+Used in libraries (like C’s qsort)
+
+Databases, searching, and data analysis tools
+
+Advantages:
+
+Very fast on average
+
+In-place (no extra array required)
+
+Disadvantages:
+Not stable
+Worst-case poor if pivot selection is bad
